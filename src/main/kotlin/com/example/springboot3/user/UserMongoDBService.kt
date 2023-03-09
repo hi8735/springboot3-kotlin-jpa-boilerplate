@@ -6,25 +6,19 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 
-interface UserService {
-    fun findUsers(condition: UserSearchCondition, page: Pageable): Page<User>
-    fun findUserByEmail(email: String): User?
-    fun createUser(user: UserParam): User
-}
-
 @Service
-class UserJpaService(
-    private val userJPARepository: UserRepository
+class UserMongoDBService(
+    private val userMongoRepository: UserRepository
 ) : UserService {
     override fun findUsers(condition: UserSearchCondition, page: Pageable): Page<User> {
         TODO("Not yet implemented")
     }
 
     override fun findUserByEmail(email: String): User? {
-        TODO("Not yet implemented")
+        return userMongoRepository.findByEmail(email)
     }
 
     override fun createUser(user: UserParam): User {
-        TODO("Not yet implemented")
+        return userMongoRepository.save(MongoDbUser.create(user))
     }
 }

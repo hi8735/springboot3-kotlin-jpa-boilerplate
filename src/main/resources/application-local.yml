@@ -1,0 +1,26 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+  cloud:
+    function:
+      definition: producer-orders-collected;producer-delivery-order-requested;producer-tracking-number-store-registered;producer-order-status-changed;producer-insufficient-confirm-product-created;producer-insufficient-confirm-product-resolved
+  data:
+    redis:
+      cluster:
+        nodes: localhost:6379
+#      host: localhost:6379
+database:
+  url: jdbc:mysql://localhost:3306/fn_products?autoReconnect=true&useSSL=false
+
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type: TRACE
+
