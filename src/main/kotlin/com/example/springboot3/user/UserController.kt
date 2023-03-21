@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/users")
 class UserController(
-    private val mongoDBUserService: UserService,
-    private val jpaUserService: UserService,
+    private val userMongoDBService: UserService,
+    private val userJpaService: UserService,
 ) {
 
 //    @GetMapping
@@ -22,12 +22,12 @@ class UserController(
 
     @GetMapping("/email")
     fun getUserByEmail(@RequestParam email: String): User? {
-        return mongoDBUserService.findUserByEmail(email)
+        return userMongoDBService.findUserByEmail(email)
     }
 
     @PostMapping
     fun createUser(@RequestBody user: UserParam): User {
-        return mongoDBUserService.createUser(user)
+        return userMongoDBService.createUser(user)
     }
 
 //    @PutMapping("/{id}")

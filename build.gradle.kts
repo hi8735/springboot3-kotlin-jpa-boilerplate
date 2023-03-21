@@ -36,6 +36,8 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java")
 
 //    implementation ("org.mongodb:mongodb-driver-sync:4.3.1")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
 
     /**
      * QueryDSL 의존성
@@ -69,7 +71,6 @@ tasks.withType<Test> {
 /**
  * 전체 테스트 시간 측정
  */
-
 tasks.named("test") {
     var startedAt: Long = System.currentTimeMillis()
     doFirst{

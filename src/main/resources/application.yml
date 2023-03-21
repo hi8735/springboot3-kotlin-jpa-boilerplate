@@ -10,7 +10,7 @@ spring:
       repositories:
         enabled: false
   application:
-    name: spring-ss-product
+    name: springboot-3-multi-db
   web:
     locale: ko_KR
   jpa:
@@ -30,7 +30,8 @@ spring:
           provider_disables_autocommit: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${database.url}
+#    url: ${database.url}
+    url: jdbc:mysql://localhost:3306/boot3_users?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: ${DB_USERNAME:root}
     password: ${DB_PASSWORD:}
     hikari:
@@ -62,7 +63,7 @@ spring:
     activate:
       on-profile: dev
 database:
-  url: jdbc:mysql://localhost:3306/boot3User?autoReconnect=true&useSSL=false
+  url: jdbc:mysql://localhost:3306/boot3_users?autoReconnect=true&useSSL=false
 
 logging:
   level:
@@ -75,7 +76,7 @@ spring:
     activate:
       on-profile: prod
 database:
-  url: jdbc:mysql://localhost:3306/boot3User?autoReconnect=true&useSSL=false
+  url: jdbc:mysql://localhost:3306/boot3_users?autoReconnect=true&useSSL=false
 
 logging:
   level:

@@ -12,19 +12,3 @@ interface UserService {
     fun createUser(user: UserParam): User
 }
 
-@Service
-class UserJpaService(
-    private val userJPARepository: UserRepository
-) : UserService {
-    override fun findUsers(condition: UserSearchCondition, page: Pageable): Page<User> {
-        TODO("Not yet implemented")
-    }
-
-    override fun findUserByEmail(email: String): User? {
-        TODO("Not yet implemented")
-    }
-
-    override fun createUser(user: UserParam): User {
-        TODO("Not yet implemented")
-    }
-}

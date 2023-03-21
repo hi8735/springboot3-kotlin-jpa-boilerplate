@@ -17,7 +17,7 @@ spring:
         nodes: localhost:6379
 #      host: localhost:6379
 database:
-  url: jdbc:mysql://localhost:3306/fn_products?autoReconnect=true&useSSL=false
+  url: jdbc:mysql://localhost:3306/boot3_users?autoReconnect=true&useSSL=false
 
 #logging:
 #  level:
